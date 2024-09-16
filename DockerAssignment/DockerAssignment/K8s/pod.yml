@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockerassignment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dockerassignment
+  template:
+    metadata:
+      labels:
+        app: dockerassignment
+    spec:
+      containers:
+      - name: dockerassignment
+        image: mohammadfarooq02/dockerdemo:latest 
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
